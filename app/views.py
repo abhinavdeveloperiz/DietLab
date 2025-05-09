@@ -196,6 +196,7 @@ DietLab Team
             <div style="padding: 30px;">
                 <p>👋 Hello <strong>{instance.name}</strong>,</p>
                 <p>Your consultation has been successfully booked. Here are your details:</p>
+                
                 <p>🧑 <strong>Name:</strong> {instance.name}</p>
                 <p>🎂 <strong>Age:</strong> {instance.age}</p>
                 <p>📧 <strong>Email:</strong> {instance.email}</p>
@@ -203,10 +204,18 @@ DietLab Team
                 <p>🎯 <strong>Health Goals:</strong> {instance.goal}</p>
                 <p>⚠️ <strong>Medical History:</strong> {instance.any_medical_history}</p>
                 <p>📝 <strong>Medical Details:</strong> {instance.medical_history_details or 'None provided'}</p>
+                
+                <!-- Important timezone note -->
+                <p style="color: #D32F2F;"><strong>Note:</strong> The time provided below is based on UK time (GMT/BST). If you're in a different country or unsure about the time, please check your local time equivalent using this link: 
+                    <a href="https://www.timeanddate.com/worldclock/converter.html" style="color: #0D47A1;" target="_blank">Check time conversion</a>
+                </p>
+
                 <p>📅 <strong>Date:</strong> {instance.time.date}</p>
                 <p>🕒 <strong>Time:</strong> {instance.time}</p>
+
                 <p style="margin-top: 20px; color: #666;">We look forward to helping you achieve your health goals!</p>
             </div>
+
         </div>
     </body>
 </html>

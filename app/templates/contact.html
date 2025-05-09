@@ -36,67 +36,132 @@
     <div class="contact-wrapper">
         <div class="contact-form">
             <h2>Book Your Consultation</h2>
+            <div class="pricing-banner">
+                <div class="price-text">
+                    <span class="price-bg">£80</span>
+                    <span class="price-actual">£50</span>
+                </div>
+                <p class="offer-tag">Limited Time Offer - Save £30!</p>
+            </div>
             <form method="POST">
                 {% csrf_token %}
                 <!-- Two-column layout for personal info -->
+                <!-- Modify each form group to include error messages -->
                 <div class="form-row">
                     <div class="form-col">
                         <div class="form-group">
                             <label for="{{ form.name.id_for_label }}">Full Name</label>
                             {{ form.name }}
+                            {% if form.name.errors %}
+                            <div class="error-message">
+                                {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-col">
                         <div class="form-group">
                             <label for="{{ form.age.id_for_label }}">Age</label>
                             {{ form.age }}
+                            {% if form.age.errors %}
+                            <div class="error-message">
+                                {% for error in form.age.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                
-                <!-- Two-column layout for contact info -->
+
+                <!-- Repeat for email and phone -->
                 <div class="form-row">
                     <div class="form-col">
                         <div class="form-group">
                             <label for="{{ form.email.id_for_label }}">Email</label>
                             {{ form.email }}
+                            {% if form.email.errors %}
+                            <div class="error-message">
+                                {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-col">
                         <div class="form-group">
                             <label for="{{ form.phone.id_for_label }}">Phone Number</label>
                             {{ form.phone }}
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="{{ form.goal.id_for_label }}">Your Health Goals</label>
-                    {{ form.goal }}
-                </div>
-                
-                <div class="form-group">
-                    
-                        <div class="form-group">
-                            <label for="{{ form.any_medical_history.id_for_label }}">Any Medical History?</label>
-                            {{ form.any_medical_history }}
-                        </div>
-                    
-                    <div class="form-group">
-                        <div class="form-group allergy-details" id="medical_Details_Group">
-                            <label for="{{ form.medical_history_details.id_for_label }}">Medical History Details</label>
-                            {{ form.medical_history_details }}
+                            {% if form.phone.errors %}
+                            <div class="error-message">
+                                {% for error in form.phone.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
 
+                <!-- Health Goals -->
+                <div class="form-group">
+                    <label for="{{ form.goal.id_for_label }}">Your Health Goals</label>
+                    {{ form.goal }}
+                    {% if form.goal.errors %}
+                    <div class="error-message">
+                        {% for error in form.goal.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Medical History -->
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="{{ form.any_medical_history.id_for_label }}">Any Medical History?</label>
+                        {{ form.any_medical_history }}
+                        {% if form.any_medical_history.errors %}
+                        <div class="error-message">
+                            {% for error in form.any_medical_history.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group allergy-details" id="medical_Details_Group">
+                        <label for="{{ form.medical_history_details.id_for_label }}">Medical History Details</label>
+                        {{ form.medical_history_details }}
+                        {% if form.medical_history_details.errors %}
+                        <div class="error-message">
+                            {% for error in form.medical_history_details.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Time selection -->
                 <div class="form-row">
                     <div class="form-col">
                         <div class="mb-3">
                             <label for="date-picker" class="form-label">Select Date</label>
-                            <input type="text" id="date-picker" class="form-control" placeholder="Choose an available date">
+                            <input type="text" id="date-picker" class="form-control"
+                                placeholder="Choose an available date">
                             <div style="display: none;">
                                 {{ form.time }}
+                                {% if form.time.errors %}
+                                <div class="error-message">
+                                    {% for error in form.time.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -115,57 +180,57 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const datePickerInput = document.getElementById('date-picker');
-    const timeSelect = document.querySelector('select[name="time"]');
-    const timeSlotsContainer = document.querySelector('.time-slots-container');
+    document.addEventListener('DOMContentLoaded', function () {
+        const datePickerInput = document.getElementById('date-picker');
+        const timeSelect = document.querySelector('select[name="time"]');
+        const timeSlotsContainer = document.querySelector('.time-slots-container');
 
-    // Get all available dates from time slots
-    const availableDates = new Set();
-    Array.from(timeSelect.options).forEach(option => {
-        if (option.value) { // Skip the empty choice
-            const date = timeSelect.getAttribute(`data-date-${option.value}`);
-            if (date) availableDates.add(date);
-        }
-    });
-
-    // Initialize flatpickr with the available dates
-    const picker = flatpickr(datePickerInput, {
-        dateFormat: "Y-m-d",
-        enable: [...availableDates],
-        minDate: 'today',
-        onChange: function(selectedDates, dateStr) {
-            updateAvailableTimeSlots(dateStr);
-        }
-    });
-
-    function updateAvailableTimeSlots(selectedDate) {
-        timeSlotsContainer.innerHTML = '';
-        
-        // Get user's timezone
-        const userTimezone = moment.tz.guess();
-    
-        // Filter and display available time slots for selected date
+        // Get all available dates from time slots
+        const availableDates = new Set();
         Array.from(timeSelect.options).forEach(option => {
-            if (!option.value) return; // Skip empty choice
-            const optionDate = timeSelect.getAttribute(`data-date-${option.value}`);
-            if (optionDate === selectedDate) {
-                const timeSlot = document.createElement('div');
-                timeSlot.className = 'time-slot-option';
-                
-                // Get the UK time from the data attribute
-                const ukTime = timeSelect.getAttribute(`data-time-${option.value}`);
-                const [startTime, endTime] = ukTime.split(' - ');
-    
-                // Convert times to user's local timezone
-                const localStartTime = moment.tz(`${selectedDate} ${startTime}`, 'YYYY-MM-DD hh:mm A', 'Europe/London')
-                    .tz(userTimezone)
-                    .format('hh:mm A');
-                const localEndTime = moment.tz(`${selectedDate} ${endTime}`, 'YYYY-MM-DD hh:mm A', 'Europe/London')
-                    .tz(userTimezone)
-                    .format('hh:mm A');
-    
-                timeSlot.innerHTML = `
+            if (option.value) { // Skip the empty choice
+                const date = timeSelect.getAttribute(`data-date-${option.value}`);
+                if (date) availableDates.add(date);
+            }
+        });
+
+        // Initialize flatpickr with the available dates
+        const picker = flatpickr(datePickerInput, {
+            dateFormat: "Y-m-d",
+            enable: [...availableDates],
+            minDate: 'today',
+            onChange: function (selectedDates, dateStr) {
+                updateAvailableTimeSlots(dateStr);
+            }
+        });
+
+        function updateAvailableTimeSlots(selectedDate) {
+            timeSlotsContainer.innerHTML = '';
+
+            // Get user's timezone
+            const userTimezone = moment.tz.guess();
+
+            // Filter and display available time slots for selected date
+            Array.from(timeSelect.options).forEach(option => {
+                if (!option.value) return; // Skip empty choice
+                const optionDate = timeSelect.getAttribute(`data-date-${option.value}`);
+                if (optionDate === selectedDate) {
+                    const timeSlot = document.createElement('div');
+                    timeSlot.className = 'time-slot-option';
+
+                    // Get the UK time from the data attribute
+                    const ukTime = timeSelect.getAttribute(`data-time-${option.value}`);
+                    const [startTime, endTime] = ukTime.split(' - ');
+
+                    // Convert times to user's local timezone
+                    const localStartTime = moment.tz(`${selectedDate} ${startTime}`, 'YYYY-MM-DD hh:mm A', 'Europe/London')
+                        .tz(userTimezone)
+                        .format('hh:mm A');
+                    const localEndTime = moment.tz(`${selectedDate} ${endTime}`, 'YYYY-MM-DD hh:mm A', 'Europe/London')
+                        .tz(userTimezone)
+                        .format('hh:mm A');
+
+                    timeSlot.innerHTML = `
                     <input type="radio" 
                            name="time" 
                            id="slot_${option.value}" 
@@ -175,18 +240,18 @@ document.addEventListener('DOMContentLoaded', function () {
                         ${localStartTime} - ${localEndTime} (${moment.tz(userTimezone).zoneAbbr()})
                     </label>
                 `;
-                timeSlotsContainer.appendChild(timeSlot);
-            }
-        });
-    
-        // Add change event listeners to radio buttons
-        document.querySelectorAll('.time-slot-radio').forEach(radio => {
-            radio.addEventListener('change', function() {
-                timeSelect.value = this.value;
+                    timeSlotsContainer.appendChild(timeSlot);
+                }
             });
-        });
-    }
-});
+
+            // Add change event listeners to radio buttons
+            document.querySelectorAll('.time-slot-radio').forEach(radio => {
+                radio.addEventListener('change', function () {
+                    timeSelect.value = this.value;
+                });
+            });
+        }
+    });
     // International telephone input
     document.addEventListener("DOMContentLoaded", function () {
         const phoneInput = document.querySelector("#phone");
@@ -217,21 +282,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Add input animation effects
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const inputs = document.querySelectorAll('input, select, textarea');
-        
+
         inputs.forEach(input => {
-            input.addEventListener('focus', function() {
+            input.addEventListener('focus', function () {
                 this.parentElement.classList.add('input-focused');
             });
-            
-            input.addEventListener('blur', function() {
+
+            input.addEventListener('blur', function () {
                 this.parentElement.classList.remove('input-focused');
             });
         });
     });
     // only show the medical history details if the checkbox is checked 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const medicalHistorySelect = document.querySelector('select[name="any_medical_history"]');
         const medicalDetailsGroup = document.getElementById('medical_Details_Group');
 
