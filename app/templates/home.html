@@ -1,0 +1,407 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<section class="hero">
+    <div class="hero-content">
+        <!-- Hero content could have a title here -->
+    </div>
+
+    <div class="hero-cards">
+
+
+        <a href="{% url 'contact' %}" class="hero-card big-card " data-aos="fade-down">
+            <h3 class="text-white">Book An Appointment</h3>
+            <p class="text-white">Custom plans to fit your unique health goals and lifestyle.</p>
+            <i class="fas fa-arrow-right text-white"></i>
+        </a>
+
+
+        <div class="small-cards">
+            <a href="{% url 'about' %}" class="hero-card small-card bg-white" data-aos="fade-up">
+                <h4 class="text-black">About Us</h4>
+                <p class="text-black">Discover our mission, vision, and the team behind our success.</p>
+                <i class="fas fa-arrow-right text-black"></i>
+            </a>
+
+
+            <a href="{% url 'service' %}" class="hero-card small-card bg-white" data-aos="fade-up">
+                <h4 class="text-black">Our Services</h4>
+                <p class="text-black">Therapy plans for diabetes, heart health, and more.</p>
+                <i class="fas fa-arrow-right text-black"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services py-5">
+    <div class="container">
+        <h2 class="section-title mb-4">Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-utensils fa-2x mb-3 text-primary"></i>
+                <h3>Personalized Nutrition Plans</h3>
+                <p class="service-description">Custom plans tailored to your unique health needs and goals.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-heartbeat fa-2x mb-3 text-danger"></i>
+                <h3>PCOS/PCOD Support</h3>
+                <p class="service-description">Customized plans to manage PCOS/PCOD symptoms through diet and lifestyle
+                    changes.</p>
+            </div>
+
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-notes-medical fa-2x mb-3 text-info"></i>
+                <h3>Medical Nutrition Therapy</h3>
+                <p class="service-description">Therapy and guidance to manage various medical conditions.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-clipboard-check fa-2x mb-3 text-success"></i>
+                <h3>Assessments</h3>
+                <p class="service-description">Detailed health assessments to personalize your nutrition plan.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-dna fa-2x mb-3 text-warning"></i>
+                <h3>Diabetes Nutrition</h3>
+                <p class="service-description">Nutrition plans to help manage diabetes effectively.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-tint fa-2x mb-3 text-danger"></i>
+                <h3>Kidney & Renal Care</h3>
+                <p class="service-description">Specialized nutrition to support kidney health and function.</p>
+            </div>
+
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-user-md fa-2x mb-3 text-secondary"></i>
+                <h3>Gastroenterology Nutrition</h3>
+                <p class="service-description">Expert nutrition to support digestive health.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-stethoscope fa-2x mb-3 text-info"></i>
+                <h3>Cholesterol/BP Management</h3>
+                <p class="service-description">Nutritional guidance to help control blood pressure and cholesterol
+                    levels naturally.</p>
+            </div>
+
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-th-large fa-2x mb-3 text-warning"></i>
+                <h3>Thyroid Conditions</h3>
+                <p class="service-description">Nutritional guidance for thyroid-related conditions.</p>
+            </div>
+
+            <div class="service-card" data-aos="fade-right">
+                <i class="fas fa-baby fa-2x mb-3 text-dark"></i>
+                <h3>Pregnancy Nutrition</h3>
+                <p class="service-description">Essential nutrition for a healthy pregnancy journey.</p>
+            </div>
+
+
+        </div>
+        <div class="text-center mt-5">
+            <a href="{% url 'service' %}" class="button btn">View More</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Trusted By Section -->
+<section class="trust-section">
+    <div class="container-fluid">
+        <h2>Trusted by Professional Dietitians</h2>
+        <p>Our services have been certified and approved by leading dietitian associations, ensuring the highest
+            standards of nutritional quality and integrity.</p>
+
+        <div class="logo-slider">
+            <div class="logo-track">
+                <div class="logo-item">
+                    <img src="{% static 'media/BDA.png' %}" alt="Dietitian Association Logo 1">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/TAD.png' %}" alt="Dietitian Association Logo 2">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/HCPC.png' %}" alt="Dietitian Association Logo 3">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/iND.jpg' %}" alt="Dietitian Association Logo 4">
+                </div>
+
+                <!-- Duplicate logos for infinite loop -->
+                <div class="logo-item">
+                    <img src="{% static 'media/BDA.png' %}" alt="Dietitian Association Logo 1">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/TAD.png' %}" alt="Dietitian Association Logo 2">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/HCPC.png' %}" alt="Dietitian Association Logo 3">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/iND.jpg' %}" alt="Dietitian Association Logo 4">
+                </div>
+                <div class="logo-item">
+                    <img src="{% static 'media/BDA.png' %}" alt="Dietitian Association Logo 1">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/TAD.png' %}" alt="Dietitian Association Logo 2">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/HCPC.png' %}" alt="Dietitian Association Logo 3">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/iND.jpg' %}" alt="Dietitian Association Logo 4">
+                </div>
+                <div class="logo-item">
+                    <img src="{% static 'media/BDA.png' %}" alt="Dietitian Association Logo 1">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/TAD.png' %}" alt="Dietitian Association Logo 2">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/HCPC.png' %}" alt="Dietitian Association Logo 3">
+                </div>
+
+                <div class="logo-item">
+                    <img src="{% static 'media/iND.jpg' %}" alt="Dietitian Association Logo 4">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- insurance============================ -->
+
+<div class="container">
+    <div class="page-header p-4 my-5">
+        <h1 class="text-white text-center mb-0">Trusted Partners</h1>
+        <p class="text-white text-center text-opacity-75 mb-0 mt-2">We proudly collaborate with trusted insurance partners to offer you the best services and support.</p>
+
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+        {% for i in insurance %}
+        <div class="col d-flex justify-content-center mx-auto">
+            <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+
+        <div class="carousel-container">
+            <div class="carousel-track" id="testimonialTrack">
+                <!-- Testimonial 4 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="client-image">
+                            <img src="{% static 'image/1.avif' %}"
+
+                                alt="Priya Menon">
+                        </div>
+                        <p class="testimonial-text">"Their PCOS diet plan worked wonders for me. I finally have regular
+                            cycles and feel more energetic than ever."</p>
+                        <p class="testimonial-author">- Priya Menon</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="client-image">
+                            <img src="{% static 'image/2.avif' %}"
+
+                                alt="David Mathews">
+                        </div>
+                        <p class="testimonial-text">"As a diabetic, I needed a structured plan. The nutritionists helped
+                            me control my sugar levels with easy-to-follow meals."</p>
+                        <p class="testimonial-author">- David Mathews</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="client-image">
+                            <img src="{% static 'image/4.jpg' %}"
+                                alt="Elizabeth">
+                        </div>
+                        <p class="testimonial-text">"Their assessment and personalized plan helped improve my
+                            cholesterol and BP. I feel younger and healthier now."</p>
+                        <p class="testimonial-author">- Elizabeth</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="client-image">
+                            <img src="{% static 'image/kerala.jpg' %}"
+                                alt="Reshmi Nair">
+                        </div>
+                        <p class="testimonial-text">"ഒരു Experienced ഡയറ്റിഷനിൽ നിന്ന് ലഭിച്ച ശരിയായ ഡയറ്റും
+                            പിന്തുണയും കൊണ്ട് തൈറോയ്ഡ് പ്രശ്നത്തിൽ നിന്നു വലിയൊരു ആശ്വാസമാണ് ഞാൻ നേടിയത്."</p>
+                        <p class="testimonial-author">- Reshmi Nair</p>
+
+                    </div>
+                </div>
+
+                <!-- Testimonial 8 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="client-image">
+                            <img src="{% static 'image/sa.webp' %}"
+                                alt="Sandra Philip">
+                        </div>
+                        <p class="testimonial-text">"I was struggling with digestive issues. Their gastro nutrition plan
+                            eased my symptoms and improved my gut health."</p>
+                        <p class="testimonial-author">- Sandra Philip</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 9 -->
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="client-image">
+                            <img src="{% static 'image/5.jpeg' %}">
+                                alt="Neha Joseph">
+                        </div>
+                        <p class="testimonial-text">"During my pregnancy, their diet support was incredible. I felt
+                            strong and confident knowing my baby and I were well-nourished."</p>
+                        <p class="testimonial-author">- Neha Joseph</p>
+                    </div>
+                </div>
+
+
+                <!-- Add remaining testimonials -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button class="carousel-btn prev-btn" id="prevBtn">&lt;</button>
+            <button class="carousel-btn next-btn" id="nextBtn">&gt;</button>
+
+            <!-- Dots for navigation -->
+            <div class="carousel-dots" id="carouselDots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+                <!-- Add remaining dots -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Transform Your Health?</h2>
+        <p>Take the first step toward a healthier you. Schedule a consultation with one of our expert dietitians today.
+        </p>
+        <a href="" class="cta-btn">Book Your Appointment</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const track = document.getElementById('testimonialTrack');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.dot');
+
+        let currentSlide = 0;
+        const slideCount = slides.length;
+
+        // Function to move to a specific slide
+        function goToSlide(index) {
+            if (index < 0) {
+                index = slideCount - 1;
+            } else if (index >= slideCount) {
+                index = 0;
+            }
+
+            track.style.transform = `translateX(-${index * 100}%)`;
+            currentSlide = index;
+
+            // Update active dot
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        // Previous button click event
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentSlide - 1);
+        });
+
+        // Next button click event
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentSlide + 1);
+        });
+
+        // Dot click events
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+
+        // Auto slide (optional)
+        setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000); // Change slide every 5 seconds
+
+        // Touch events for mobile swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX) {
+                // Swipe left
+                goToSlide(currentSlide + 1);
+            } else if (touchEndX > touchStartX) {
+                // Swipe right
+                goToSlide(currentSlide - 1);
+            }
+        }
+    });
+</script>
+{% endblock %}

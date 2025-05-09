@@ -1,0 +1,229 @@
+/* appoinment.css */
+
+/* Main layout */
+body {
+    background-color: #f0f5ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .appointment-confirmation {
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.15);
+    overflow: hidden;
+  }
+  
+  /* Header section */
+  .confirmation-header {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  
+  .confirmation-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .thank-you-message {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0.5rem 0 0;
+  }
+  
+  /* Appointments table container */
+  .appointments-container {
+    padding: 1.5rem;
+  }
+  
+  /* Table styles */
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .appointment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .appointment-table thead {
+    background-color: #e0eaff;
+  }
+  
+  .appointment-table th {
+    padding: 1rem;
+    text-align: left;
+    color: #0056b3;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 2px solid #c0d6ff;
+  }
+  
+  .appointment-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0eaff;
+    color: #444;
+  }
+  
+  .appointment-table tbody tr:hover {
+    background-color: #f8fbff;
+  }
+  
+  .appointment-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Status badge */
+  .status-confirmed {
+    background-color: #28a745;
+    color: white;
+    width: 115px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block;
+    
+  }
+  .status-pending{
+    background-color: #c00000;
+    color: white;
+    width: 115px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  /* Table footer */
+  .table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0 0;
+    color: #666;
+    border-top: 1px solid #e0eaff;
+    margin-top: 1rem;
+  }
+  
+  .table-footer p {
+    margin: 0;
+  }
+  
+  /* Buttons */
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn-print {
+    background-color: #0056b3;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-print:hover {
+    background-color: #004494;
+    transform: translateY(-1px);
+  }
+  
+  /* No appointments state */
+  .no-appointments {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f8fbff;
+    border-radius: 8px;
+    border: 1px dashed #c0d6ff;
+  }
+  
+  .no-data-icon {
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+  
+  .no-appointments h2 {
+    color: #0056b3;
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .no-appointments p {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .appointment-confirmation {
+      margin: 1rem;
+    }
+    
+    .confirmation-header {
+      padding: 1.25rem;
+    }
+    
+    .appointment-table thead {
+      display: none;
+    }
+    
+    .appointment-table, 
+    .appointment-table tbody, 
+    .appointment-table tr, 
+    .appointment-table td {
+      display: block;
+      width: 100%;
+    }
+    
+    .appointment-table tr {
+      margin-bottom: 1rem;
+      border: 1px solid #e0eaff;
+      border-radius: 4px;
+    }
+    
+    .appointment-table td {
+      text-align: right;
+      padding: 0.75rem;
+      position: relative;
+      padding-left: 50%;
+    }
+    
+    .appointment-table td:before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0.75rem;
+      width: 45%;
+      padding-right: 10px;
+      text-align: left;
+      font-weight: 600;
+      color: #0056b3;
+    }
+    
+    .appointment-table td:first-child {
+      border-top: none;
+      background-color: rgb(225, 225, 225);
+    }
+    
+    .table-footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+  }

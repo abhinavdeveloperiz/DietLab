@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block %}
+<link rel="stylesheet" href="{% static 'css/service.css' %}">
+
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Specialist Dietitian</h1>
+        <p>Our specialized nutrition services are designed to help you achieve optimal health through personalized
+            dietary plans and ongoing professional support.</p>
+        <a href="{% url 'contact' %}" class="cta-btn">Schedule a Consultation</a>
+    </div>
+</section>
+
+
+<!-- Services Section -->
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">Our Comprehensive Services</h2>
+        <p class="text-center mb-5">We offer a wide range of nutrition services tailored to meet your specific health
+            needs and goals.</p>
+
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-utensils fa-2x mb-3 text-primary"></i>
+                    <h3>Personalized Nutrition Plans</h3>
+                    <p>Custom meal plans designed specifically for your body, lifestyle, and health goals. We consider
+                        your preferences, allergies, and dietary restrictions.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-heartbeat fa-2x mb-3 text-danger"></i>
+                    <h3>PCOS/PCOD Support</h3>
+                    <p>Personalized nutrition and lifestyle plans to help manage PCOS/PCOD symptoms, improve hormonal
+                        balance, and enhance overall well-being.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-notes-medical fa-2x mb-3 text-info"></i>
+                    <h3>Medical Nutrition Therapy</h3>
+                    <p>Specialized nutrition interventions for conditions like diabetes, heart disease, digestive
+                        disorders, and more.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-clipboard-check fa-2x mb-3 text-success"></i>
+                    <h3>Assessments</h3>
+                    <p>Comprehensive assessments to understand your health status and nutritional needs before planning
+                        interventions.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-dna fa-2x mb-3 text-warning"></i>
+                    <h3>Diabetes Nutrition</h3>
+                    <p>Personalized dietary management to help control blood sugar levels and prevent complications.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-tint fa-2x mb-3 text-danger"></i>
+                    <h3>Kidney & Renal Care</h3>
+                    <p>Specialized nutrition plans for managing kidney disease and supporting renal function.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-user-md fa-2x mb-3 text-secondary"></i>
+                    <h3>Gastroenterology Nutrition</h3>
+                    <p>Support for digestive health conditions with tailored nutrition therapy.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-stethoscope fa-2x mb-3 text-info"></i>
+                    <h3>Cholesterol/BP Management</h3>
+                    <p>Expert dietary and lifestyle strategies to help manage blood pressure and cholesterol levels for
+                        a healthier heart.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-th-large fa-2x mb-3 text-warning"></i>
+                    <h3>Thyroid Conditions</h3>
+                    <p>Nutrition plans aimed at balancing thyroid function and managing related symptoms.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="service-card text-center p-4 shadow rounded-4 position-relative h-100">
+                    <i class="fas fa-baby fa-2x mb-3 text-pink"></i>
+                    <h3>Pregnancy Nutrition</h3>
+                    <p>Nutrition support during pregnancy for both mother and baby's health and wellness.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'contact' %}" class="btn btn-primary text-white"><b>Book Your Consultation</b></a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Our Process -->
+<section class="process">
+    <div class="container">
+        <h2 class="section-title text-center">Our Approach</h2>
+        <p class="text-center mb-5">We follow a systematic approach to help you achieve your nutrition and health goals.
+        </p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Assessment</h3>
+                    <p><b>20 Minutes</b></p>
+                    <p>We start with a comprehensive assessment of your health status, dietary habits, and goals.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Consulting <br></h3>
+                    <p><b>30 Minutes</b></p>
+                    <p>Personalized consulting sessions to provide guidance, clarify doubts, and set actionable steps.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Follow-ups</h3>
+                    <p><b>30 Minutes</b></p>
+                    <p>Regular follow-ups to monitor your progress, address challenges, and adjust the plan if needed.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Transform Your Health?</h2>
+        <p>Book a consultation with our expert nutritionists today and take the first step toward a healthier you.</p>
+        <a href="{% url 'contact' %}" class="cta-btn d-none d-md-inline-block">Schedule Your Appointment</a>
+        <a href="mailto:priya05uk@gmail.com" class="cta-btn d-inline-block d-md-none">Schedule Your Appointment</a>
+
+    </div>
+</section>
+
+
+
+
+{% endblock %}

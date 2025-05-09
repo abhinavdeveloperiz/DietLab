@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+body {
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../images/dietiton.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: "Roboto Slab", serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #015bd0;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #015bd0;
+    color: white;
+}
+.button{
+    background-color: white;
+    color: blue;
+    width: 220px;
+}
+.button:hover{
+    border: 1px solid white;
+    color: white;
+}
+
+
+
+/* Services Section */
+.services {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #015bd0;
+
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+.service-card {
+    flex: 1 1 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    
+
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card h3 {
+    color: #015bd0;
+    margin-bottom: 15px;
+}
+
+/* About Section */
+.about {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image {
+    flex: 1 1 400px;
+    margin-right: 50px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-content {
+    flex: 1 1 500px;
+}
+.about-content p{
+    text-align: justify;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: #015bd0;
+    margin-bottom: 20px;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #d3daff;  /* Light blue background */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #015bd0;
+    margin-bottom: 50px;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Carousel Track */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Testimonial Slides */
+.testimonial-slide {
+    min-width: 100%;
+    padding: 10px;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    background-color: white;
+    width: 100%;
+    height: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Client Image */
+.client-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid #015bd0;
+}
+
+.client-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+/* Testimonial Text */
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Testimonial Author */
+.testimonial-author {
+    font-weight: bold;
+    color: #015bd0;
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    margin: 0px 20px 0px 20px;
+    transform: translateY(-50%);
+    background-color: #015bd0;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: #015bd0;
+}
+
+.prev-btn {
+    left: -20px;
+}
+
+.next-btn {
+    right: -20px;
+}
+
+/* Dots Navigation */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #015bd0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    
+    .prev-btn {
+        left: 0;
+    }
+    
+    .next-btn {
+        right: 0;
+    }
+    
+    .client-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* CTA Section */
+.cta {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    color:  rgb(0, 8, 255);
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid black;
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-top: 50px;
+    }
+    
+    .about-image {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .service-card, .testimonial-card {
+        margin-bottom: 30px;
+    }
+}

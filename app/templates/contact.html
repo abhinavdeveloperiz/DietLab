@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<!-- Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Country code dropdown CSS -->
+<!-- country time  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+
+
+
+<!-- Country code dropdown CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+
+<!-- Country code dropdown JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+
+{% if messages %}
+<div class="message-wrapper">
+    {% for message in messages %}
+    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+        {{ message }}
+        <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="contact-container">
+    <div class="contact-wrapper">
+        <div class="contact-form">
+            <h2>Book Your Consultation</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <!-- Two-column layout for personal info -->
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">Full Name</label>
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="{{ form.age.id_for_label }}">Age</label>
+                            {{ form.age }}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Two-column layout for contact info -->
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="{{ form.phone.id_for_label }}">Phone Number</label>
+                            {{ form.phone }}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.goal.id_for_label }}">Your Health Goals</label>
+                    {{ form.goal }}
+                </div>
+                
+                <div class="form-group">
+                    
+                        <div class="form-group">
+                            <label for="{{ form.any_medical_history.id_for_label }}">Any Medical History?</label>
+                            {{ form.any_medical_history }}
+                        </div>
+                    
+                    <div class="form-group">
+                        <div class="form-group allergy-details" id="medical_Details_Group">
+                            <label for="{{ form.medical_history_details.id_for_label }}">Medical History Details</label>
+                            {{ form.medical_history_details }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="mb-3">
+                            <label for="date-picker" class="form-label">Select Date</label>
+                            <input type="text" id="date-picker" class="form-control" placeholder="Choose an available date">
+                            <div style="display: none;">
+                                {{ form.time }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <label class="form-label">Select Time Slot</label>
+                        <div class="time-slots-container">
+                            <!-- Time slots will be populated here dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn mx-auto d-flex justify-content-center">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const datePickerInput = document.getElementById('date-picker');
+    const timeSelect = document.querySelector('select[name="time"]');
+    const timeSlotsContainer = document.querySelector('.time-slots-container');
+
+    // Get all available dates from time slots
+    const availableDates = new Set();
+    Array.from(timeSelect.options).forEach(option => {
+        if (option.value) { // Skip the empty choice
+            const date = timeSelect.getAttribute(`data-date-${option.value}`);
+            if (date) availableDates.add(date);
+        }
+    });
+
+    // Initialize flatpickr with the available dates
+    const picker = flatpickr(datePickerInput, {
+        dateFormat: "Y-m-d",
+        enable: [...availableDates],
+        minDate: 'today',
+        onChange: function(selectedDates, dateStr) {
+            updateAvailableTimeSlots(dateStr);
+        }
+    });
+
+    function updateAvailableTimeSlots(selectedDate) {
+        timeSlotsContainer.innerHTML = '';
+        
+        // Get user's timezone
+        const userTimezone = moment.tz.guess();
+    
+        // Filter and display available time slots for selected date
+        Array.from(timeSelect.options).forEach(option => {
+            if (!option.value) return; // Skip empty choice
+            const optionDate = timeSelect.getAttribute(`data-date-${option.value}`);
+            if (optionDate === selectedDate) {
+                const timeSlot = document.createElement('div');
+                timeSlot.className = 'time-slot-option';
+                
+                // Get the UK time from the data attribute
+                const ukTime = timeSelect.getAttribute(`data-time-${option.value}`);
+                const [startTime, endTime] = ukTime.split(' - ');
+    
+                // Convert times to user's local timezone
+                const localStartTime = moment.tz(`${selectedDate} ${startTime}`, 'YYYY-MM-DD hh:mm A', 'Europe/London')
+                    .tz(userTimezone)
+                    .format('hh:mm A');
+                const localEndTime = moment.tz(`${selectedDate} ${endTime}`, 'YYYY-MM-DD hh:mm A', 'Europe/London')
+                    .tz(userTimezone)
+                    .format('hh:mm A');
+    
+                timeSlot.innerHTML = `
+                    <input type="radio" 
+                           name="time" 
+                           id="slot_${option.value}" 
+                           value="${option.value}"
+                           class="time-slot-radio">
+                    <label for="slot_${option.value}" class="time-slot-label">
+                        ${localStartTime} - ${localEndTime} (${moment.tz(userTimezone).zoneAbbr()})
+                    </label>
+                `;
+                timeSlotsContainer.appendChild(timeSlot);
+            }
+        });
+    
+        // Add change event listeners to radio buttons
+        document.querySelectorAll('.time-slot-radio').forEach(radio => {
+            radio.addEventListener('change', function() {
+                timeSelect.value = this.value;
+            });
+        });
+    }
+});
+    // International telephone input
+    document.addEventListener("DOMContentLoaded", function () {
+        const phoneInput = document.querySelector("#phone");
+
+        if (phoneInput) {
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: "auto",
+                nationalMode: false,
+                geoIpLookup: function (callback) {
+                    fetch('https://ipinfo.io?token=your_token_here')
+                        .then(res => res.json())
+                        .then(data => {
+                            const countryCode = (data && data.country) ? data.country : "in";
+                            callback(countryCode);
+                        })
+                        .catch(() => callback("in"));
+                },
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"
+            });
+
+            const form = phoneInput.closest("form");
+            if (form) {
+                form.addEventListener("submit", function () {
+                    phoneInput.value = iti.getNumber(); // e.g., +919876543210
+                });
+            }
+        }
+    });
+
+    // Add input animation effects
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('input-focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('input-focused');
+            });
+        });
+    });
+    // only show the medical history details if the checkbox is checked 
+    document.addEventListener('DOMContentLoaded', function() {
+        const medicalHistorySelect = document.querySelector('select[name="any_medical_history"]');
+        const medicalDetailsGroup = document.getElementById('medical_Details_Group');
+
+        // Initial state
+        updateMedicalDetailsVisibility();
+
+        // Add change event listener
+        medicalHistorySelect.addEventListener('change', updateMedicalDetailsVisibility);
+
+        function updateMedicalDetailsVisibility() {
+            if (medicalHistorySelect.value === 'YES') {
+                medicalDetailsGroup.style.display = 'block';
+                // Add smooth transition
+                medicalDetailsGroup.style.opacity = '1';
+                medicalDetailsGroup.style.maxHeight = '200px';
+            } else {
+                medicalDetailsGroup.style.display = 'none';
+                // Reset the textarea value when hidden
+                medicalDetailsGroup.querySelector('textarea').value = '';
+                medicalDetailsGroup.style.opacity = '0';
+                medicalDetailsGroup.style.maxHeight = '0';
+            }
+        }
+    });
+</script>
+
+
+{% endblock %}

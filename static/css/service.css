@@ -1,0 +1,338 @@
+:root {
+    --primary-blue: #005eb8;
+    --light-blue: #f0f4f5;
+    --dark-blue: #005eb8;
+    --accent-blue: #005eb8;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --text-dark: #333333;
+}
+
+body {
+    font-family: 'Barlow Condensed', sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+}
+
+
+.book-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--dark-blue);
+    padding: 100px 0;
+    color: var(--white);
+    text-align: center;
+   
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-weight: 300;
+}
+@media(max-width:768px){
+    .hero h1{
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+        max-width: 300px;
+        font-weight: 200;
+    }
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+    position: relative;
+    display: inline-block;
+}
+
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-blue);
+}
+
+/* Services Section */
+.services {
+    background: linear-gradient(to bottom, var(--light-blue), var(--white));
+    padding: 80px 0;
+}
+
+.services .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services .section-title:after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    color: var(--dark-blue);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.service-card i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--light-blue);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover i {
+    background-color: var(--primary-blue);
+    color: var(--white) !important;
+    transform: rotateY(180deg);
+}
+
+.service-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 0;
+    background-color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover:before {
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+/* Process Section */
+.process {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.process-step {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.step-number:hover{
+    transform: scale(1.1);
+}
+
+.process-step h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--dark-blue);
+}
+
+.process-step p {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+
+
+/* CTA Section */
+.cta {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    padding: 60px 0;
+    color: var(--white);
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.cta-btn {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid var(--white);
+}
+
+.cta-btn:hover {
+    background-color: transparent;
+    color: var(--white);
+}
+
+
+
+/* Custom colors for each icon */
+.text-nutrition { color: #2ecc71; }
+.text-weight { color: var(--primary-blue); }
+.text-medical { color: #e74c3c; }
+.text-assessment { color: #3498db; }
+.text-diabetes { color: #f39c12; }
+.text-kidney { color: #27ae60; }
+.text-ulcer { color: #c0392b; }
+.text-gastro { color: #2980b9; }
+.text-pediatric { color: #e84393; }
+.text-thyroid { color: #f1c40f; }
+.text-pregnancy { color: #7f8c8d; }
+.text-oncology { color: #e74c3c; }
+.text-oldage { color: #95a5a6; }
+.text-support { color: #00cec9; }
+.text-supplement { color: #00b894; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Services Section */
+.services {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #1a73e8;;
+
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+.service-card {
+    flex: 1 1 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    
+
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card h3 {
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
