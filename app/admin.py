@@ -5,10 +5,15 @@ from .models import (
     AppointmentPrice,
     Insurance,
     AvailableTime,
-    ContactUs
+    ContactUs,
+    Testimonial
 )
 from django.utils import timezone
 from django.contrib import messages
+
+
+
+
 
 @admin.register(AvailableTime)
 class AvailableTimeAdmin(admin.ModelAdmin):
@@ -71,38 +76,39 @@ class AvailabledateAdmin(admin.ModelAdmin):
                     messages.ERROR
                 )
 
-@admin.register(AppointmentPrice)
-class AppointmentPriceAdmin(admin.ModelAdmin):
-    list_display = ('price_choise', 'price', 'updated_on')
-    search_fields = ('price_choise',)
-    ordering = ['price']
+# @admin.register(AppointmentPrice)
+# class AppointmentPriceAdmin(admin.ModelAdmin):
+#     list_display = ('price_choise', 'price', 'updated_on')
+#     search_fields = ('price_choise',)
+#     ordering = ['price']
 
-    def has_delete_permission(self, request, obj=None):
-        return False
+#     def has_delete_permission(self, request, obj=None):
+#         return False
 
-@admin.register(Appointment)
-class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'slot', 'time', 'is_paid', 'booked_on')
-    list_filter = ('slot__date', 'is_paid', 'have_any_allergy', 'price')
-    search_fields = ('name', 'email', 'phone')
-    readonly_fields = ('booked_on', 'session_key')
-    fieldsets = (
-        ('Personal Information', {
-            'fields': ('name', 'age', 'email', 'phone')
-        }),
-        ('Health Information', {
-            'fields': ('goal', 'have_any_allergy', 'allergy_details')
-        }),
-        ('Appointment Details', {
-            'fields': ('slot', 'time', 'price', 'is_paid')
-        }),
-        ('System Fields', {
-            'fields': ('booked_on', 'session_key'),
-            'classes': ('collapse',)
-        }),
-    )
-    def has_add_permission(self, request):
-        return False
+# @admin.register(Appointment)
+# class AppointmentAdmin(admin.ModelAdmin):
+#     list_display = ('name', 'email', 'phone', 'slot', 'time', 'is_paid', 'booked_on')
+#     list_filter = ('slot__date', 'is_paid', 'have_any_allergy', 'price')
+#     search_fields = ('name', 'email', 'phone')
+#     readonly_fields = ('booked_on', 'session_key')
+#     fieldsets = (
+#         ('Personal Information', {
+#             'fields': ('name', 'age', 'email', 'phone')
+#         }),
+#         ('Health Information', {
+#             'fields': ('goal', 'have_any_allergy', 'allergy_details')
+#         }),
+#         ('Appointment Details', {
+#             'fields': ('slot', 'time', 'price', 'is_paid')
+#         }),
+#         ('System Fields', {
+#             'fields': ('booked_on', 'session_key'),
+#             'classes': ('collapse',)
+#         }),
+#     )
+#     def has_add_permission(self, request):
+#         return False
+
 
 @admin.register(ContactUs)
 class ContactUsAdmin(admin.ModelAdmin):
@@ -126,3 +132,5 @@ class ContactUsAdmin(admin.ModelAdmin):
 class InsuranceAdmin(admin.ModelAdmin):
     list_display = ('name', 'image')
     search_fields = ('name',)
+
+admin.site.register(Testimonial)

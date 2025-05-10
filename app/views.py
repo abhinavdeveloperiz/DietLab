@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
 from .forms import Appoinment_Form,ContactUs_Form
-from .models import Appointment, AppointmentPrice,ContactUs,Insurance
+from .models import Appointment, AppointmentPrice,ContactUs,Insurance,Testimonial
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail,send_mass_mail
 from django.contrib import messages
@@ -52,7 +52,8 @@ from django.core.mail import send_mass_mail
     
 def Home_view(request):
     insurance=Insurance.objects.all()
-    return render(request,"home.html",{"insurance":insurance})
+    Testimonials=Testimonial.objects.all()
+    return render(request,"home.html",{"insurance":insurance,"testimonials":Testimonials})
 
 def Aboutus_view(request):
     return render(request,"about.html")
@@ -196,7 +197,8 @@ DietLab Team
             <div style="padding: 30px;">
                 <p>👋 Hello <strong>{instance.name}</strong>,</p>
                 <p>Your consultation has been successfully booked. Here are your details:</p>
-                
+
+                <p>💷 <strong>Consultation Fee:</strong> £50</p>
                 <p>🧑 <strong>Name:</strong> {instance.name}</p>
                 <p>🎂 <strong>Age:</strong> {instance.age}</p>
                 <p>📧 <strong>Email:</strong> {instance.email}</p>
@@ -206,12 +208,18 @@ DietLab Team
                 <p>📝 <strong>Medical Details:</strong> {instance.medical_history_details or 'None provided'}</p>
                 
                 <!-- Important timezone note -->
-                <p style="color: #D32F2F;"><strong>Note:</strong> The time provided below is based on UK time (GMT/BST). If you're in a different country or unsure about the time, please check your local time equivalent using this link: 
-                    <a href="https://www.timeanddate.com/worldclock/converter.html" style="color: #0D47A1;" target="_blank">Check time conversion</a>
-                </p>
+                <p style="color: #D32F2F;">
+  <strong>Note:</strong> The time shown is in UK time (GMT/BST).<br>
+  If you're from another country, please check your local time using the converter below, or calculate manually if preferred.<br>
+  Visit: 
+  <a href="https://www.timeanddate.com/worldclock/converter.html?iso=20250506T090000&p1=176&p2=776&p3=136" style="color: #0D47A1;" target="_blank">
+    World Time Buddy
+  </a>
+</p>
 
-                <p>📅 <strong>Date:</strong> {instance.time.date}</p>
-                <p>🕒 <strong>Time:</strong> {instance.time}</p>
+
+                <p>📅 <strong>Appointment Date:</strong> {instance.time.date}</p>
+                <p>🕒 <strong>Appointment Time:</strong> {instance.time}</p>
 
                 <p style="margin-top: 20px; color: #666;">We look forward to helping you achieve your health goals!</p>
             </div>

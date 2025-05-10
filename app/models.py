@@ -133,3 +133,16 @@ class ContactUs(models.Model):
 class Insurance(models.Model):
     image=models.ImageField(upload_to="inspurance")
     name=models.CharField(max_length=200)
+
+
+from django.db import models
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=100)
+    message = models.TextField()
+    image = models.ImageField(upload_to='testimonials/', blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
