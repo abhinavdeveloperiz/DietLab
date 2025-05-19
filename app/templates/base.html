@@ -52,7 +52,7 @@
             <li><a href="{% url 'service' %}">Services</a></li>
             <!-- <li><a href="">My Bookings</a></li> -->
             <li><a href="{% url 'gallery' %}">Gallery</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'contact' %}">Book Appointment</a></li>
             <!-- <li><a href="" style="color: black; border: 1px solid black;"
                     class="appoinment-btn border px-3  rounded-2 bg-white d-none d-sm-block">Book Your Appointment</a>
             </li> -->
@@ -104,7 +104,7 @@
     {%endblock%}
 
     <!-- footer==================== -->
-    {% if request.resolver_match.url_name != 'appoinment' %}
+    {% if request.resolver_match.url_name != 'contact' %}
     <footer class=" text-black pt-5 " style="background: rgb(245, 245, 245); border-top: 1px solid black;">
 
         <div class="container">
@@ -129,7 +129,7 @@
                         <li class="mb-2"><a href="{% url 'gallery' %}"
                                 class="text-black text-decoration-none">Gallery</a></li>
                         <li class="mb-2"><a href="{% url 'contact' %}"
-                                class="text-black text-decoration-none">Contact</a></li>
+                                class="text-black text-decoration-none">Book Appointment</a></li>
 
                     </ul>
 
@@ -161,12 +161,10 @@
             <!-- Bottom Bar -->
             <div class="text-center pt-3 border-top border-secondary">
                 <p class="mb-0 small">
-                <p>&copy; 2025 Copyright by DietLab | Designed and Developed by
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=priya05uk@gmail.com" class="text-black"
-                        rel="nofollow">
-                        <b>InspireZest Technologies Pvt Ltd</b>
-                    </a>
-                </p>
+                <div class="footer-bottom">
+                <p>Copyright © 2025 All rights reserved | Designed by <a class="company text-decoration-none"
+                        href="https://inspirezesttechnologies.com/">InspireZest Technologies Pvt Ltd</a></p>
+            </div>
             </div>
         </div>
     </footer>

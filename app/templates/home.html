@@ -194,19 +194,20 @@
 <!-- insurance============================ -->
 
 <div class="container">
-    <div class="page-header p-4 my-5">
+    <div class="page-header p-2 my-5">
         <h1 class="text-white text-center mb-0">Trusted Partners</h1>
-        <p class="text-white text-center text-opacity-75 mb-0 mt-2">We proudly collaborate with trusted insurance partners to offer you the best services and support.</p>
+        <!-- <p class="text-white text-center text-opacity-75 mb-0 mt-2">We proudly collaborate with trusted insurance partners to offer you the best services and support.</p> -->
 
     </div>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
-        {% for i in insurance %}
-        <div class="col d-flex justify-content-center">
-            <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance">
-        </div>
-        {% endfor %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    {% for i in insurance %}
+    <div class="col d-flex justify-content-center">
+        <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance">
     </div>
+    {% endfor %}
+</div>
+
 </div>
 
 
@@ -353,7 +354,7 @@
         <h2>Ready to Transform Your Health?</h2>
         <p>Take the first step toward a healthier you. Schedule a consultation with one of our expert dietitians today.
         </p>
-        <a href="" class="cta-btn">Book Your Appointment</a>
+        <a href="{% url 'contact' %}" class="cta-btn">Book Your Appointment</a>
     </div>
 </section>
 

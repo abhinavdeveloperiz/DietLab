@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import (
-    Appointment, 
     Availabledate, 
     AppointmentPrice,
     Insurance,
@@ -34,7 +33,8 @@ class AvailabledateAdmin(admin.ModelAdmin):
     list_display = ('date', 'get_available_slots')
     search_fields = ('date',)
     ordering = ['-date']
-    actions = ['create_time_slots']  # Add this line
+    actions = ['create_time_slots','create_monday_tuesday_slots']  
+    
 
     def get_available_slots(self, obj):
         available_count = obj.availabletime_set.filter(is_available=True).count()
@@ -58,7 +58,7 @@ class AvailabledateAdmin(admin.ModelAdmin):
                     messages.ERROR
                 )
     create_time_slots.short_description = "Create time slots for selected dates"
-
+    
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
         if not change:  # Only for new dates
@@ -76,38 +76,10 @@ class AvailabledateAdmin(admin.ModelAdmin):
                     messages.ERROR
                 )
 
-# @admin.register(AppointmentPrice)
-# class AppointmentPriceAdmin(admin.ModelAdmin):
-#     list_display = ('price_choise', 'price', 'updated_on')
-#     search_fields = ('price_choise',)
-#     ordering = ['price']
 
-#     def has_delete_permission(self, request, obj=None):
-#         return False
+admin.site.register(AppointmentPrice)
 
-# @admin.register(Appointment)
-# class AppointmentAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'email', 'phone', 'slot', 'time', 'is_paid', 'booked_on')
-#     list_filter = ('slot__date', 'is_paid', 'have_any_allergy', 'price')
-#     search_fields = ('name', 'email', 'phone')
-#     readonly_fields = ('booked_on', 'session_key')
-#     fieldsets = (
-#         ('Personal Information', {
-#             'fields': ('name', 'age', 'email', 'phone')
-#         }),
-#         ('Health Information', {
-#             'fields': ('goal', 'have_any_allergy', 'allergy_details')
-#         }),
-#         ('Appointment Details', {
-#             'fields': ('slot', 'time', 'price', 'is_paid')
-#         }),
-#         ('System Fields', {
-#             'fields': ('booked_on', 'session_key'),
-#             'classes': ('collapse',)
-#         }),
-#     )
-#     def has_add_permission(self, request):
-#         return False
+
 
 
 @admin.register(ContactUs)

@@ -278,21 +278,6 @@ body {
 .text-supplement { color: #00b894; }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Services Section */
 .services {
     padding: 80px 20px;
@@ -318,15 +303,17 @@ body {
 }
 
 .service-card {
+    position: relative; /* Added */
     flex: 1 1 300px;
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    
-
+    z-index: 1;
+    overflow: visible; /* Make sure the popup isn't clipped */
 }
+
 
 .service-card:hover {
     transform: translateY(-10px);
@@ -336,3 +323,49 @@ body {
     color: #1a73e8;
     margin-bottom: 15px;
 }
+
+/* Service Card Description - Now properly set up as a popup */
+.service-card .service-description {
+  position: absolute;
+  top: -90px; /* Position above the card */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 94, 184, 0.95);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 250px;
+  z-index: 101;
+}
+
+/* Show description on hover */
+.service-card:hover .service-description {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Arrow pointing to the card */
+.service-card .service-description::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(0, 94, 184, 0.95);
+}
+
+

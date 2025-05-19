@@ -7,25 +7,18 @@ from datetime import time
 
 
 class AppointmentPrice(models.Model):
-    price_choices=[
-        ("1 Day","1 Day"),
-        ("3 Month","3 Month"),
-        ("6 Month","6 Month"),
-    ]
-    # currency_choices = [
-    #     ("gbp", "GBP (£)"),
-    #     ("inr", "INR (₹)"),
-    #     ("aed", "AED (د.إ)"),
-    #     ("sar", "SAR (ر.س)"),
-    # ]
-    price_choise=models.CharField(max_length=100,choices=price_choices,default="1 Day")
-    price = models.DecimalField(max_digits=6, decimal_places=0) 
-    # currency = models.CharField(max_length=10, choices=currency_choices, default="gbp")  
+
+    offer_price = models.DecimalField(max_digits=10, decimal_places=0)
+    actual_price = models.DecimalField(max_digits=10, decimal_places=0)
     updated_on = models.DateTimeField(auto_now=True)
 
+
     def __str__(self):
-        return f"{self.price_choise} - £{self.price}"
-    
+        return f"Offer Price: {self.offer_price} | Actual Price: {self.actual_price}"
+
+
+
+
 class Availabledate(models.Model):
     date = models.DateField(unique=True)
 
@@ -74,31 +67,6 @@ class AvailableTime(models.Model):
 
     
 
-class Appointment(models.Model):
-
-    name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    email = models.EmailField()
-    phone = PhoneNumberField(region=None)
-    goal = models.TextField()
-    choices=(
-        ("YES","YES"),
-        ("NO","NO"),
-    )
-    
-    time = models.CharField(max_length=100)
-    have_any_allergy = models.CharField(choices=choices,default="NO")
-    allergy_details = models.CharField(max_length=255, blank=True, null=True)
-    slot = models.ForeignKey(Availabledate, on_delete=models.CASCADE)
-    booked_on = models.DateTimeField(auto_now_add=True)
-    is_paid = models.BooleanField(default=False)
-    price= models.ForeignKey(AppointmentPrice,on_delete=models.CASCADE)
-    session_key = models.CharField(max_length=40, blank=True, null=True)
-
-
-    def __str__(self):
-        return f"{self.name} - {self.slot.date}"
-    
 
     
 
@@ -118,15 +86,16 @@ class ContactUs(models.Model):
     any_medical_history = models.CharField(choices=choices, default="NO")
     medical_history_details = models.CharField(max_length=255, blank=True, null=True)
     time = models.ForeignKey(AvailableTime,on_delete=models.CASCADE)
+    is_paid = models.BooleanField(default=False)
+    price= models.ForeignKey(AppointmentPrice,on_delete=models.CASCADE)
+    booked_on = models.DateTimeField(auto_now_add=True)
+    session_key = models.CharField(max_length=40, blank=True, null=True)
 
 
     def __str__(self):
         return f"{self.name} - {self.time}"
     
-    def save(self,*args,**kwargs):
-        self.time.is_available=False
-        self.time.save()
-        super().save(*args,**kwargs)
+   
 
 
 
@@ -141,7 +110,6 @@ class Testimonial(models.Model):
     name = models.CharField(max_length=100)
     message = models.TextField()
     image = models.ImageField(upload_to='testimonials/', blank=True, null=True)
-    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

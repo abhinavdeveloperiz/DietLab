@@ -89,7 +89,7 @@
   .contact-container {
     max-width: 900px;
     margin: 80px auto 60px;
-    padding: 0 20px;
+    padding: 0 5px;
   }
   
   .contact-wrapper {
@@ -317,14 +317,39 @@
   }
   
   /* Customize intl-tel-input */
-  .iti {
+  .phone-input-container {
+    position: relative;
+}
+
+.iti {
     width: 100%;
-  }
-  
-  .iti__flag-container {
-    display: flex;
-    align-items: center;
-  }
+}
+
+.iti__flag {
+    background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/img/flags.png");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {
+        background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/img/flags@2x.png");
+    }
+}
+
+.phone-validation-feedback {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.valid-number {
+    border-color: #28a745 !important;
+}
+
+.error-number {
+    border-color: #dc3545 !important;
+}
   
   
 /* new feature dynamic date and time  */
@@ -453,3 +478,15 @@
 .discount-price {
     display: none;
 }
+
+
+
+
+
+/* price show============================= */
+.price-display {
+    font-size: 2rem;
+    color: #1a73e8;
+    margin-top: 8px;
+}
+
