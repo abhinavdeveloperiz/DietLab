@@ -285,6 +285,12 @@ p {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .trust-section {
+    padding: 20px 0;
+  }
+}
+
 .trust-section h2 {
   color: var(--accent-blue);
   margin-bottom: 20px;
