@@ -121,10 +121,14 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 33px 0px 33px 0px;
 }
+
 
 .hero-card:hover {
   transform: translateY(-5px);
+  border-radius: 0px 0px 0px 0px;
+  transition: 0.3s ease;
 }
 
 .hero-card h3, .hero-card h4 {
@@ -190,7 +194,7 @@ p {
 .service-card {
   background: #ffffff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 33px 0px 33px 0px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -208,6 +212,8 @@ p {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
   z-index: 100; /* Increase z-index on hover to ensure popup appears on top */
+  border-radius: 0px 0px 0px 0px;
+  transition: 0.3s ease;
 }
 
 .service-card i {
