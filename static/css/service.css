@@ -40,8 +40,8 @@ body {
     background-size: cover;
     background-position: center;
     color: white;
-    padding: 100px 0;
-    height: 50vh;
+    padding-top: 100px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
