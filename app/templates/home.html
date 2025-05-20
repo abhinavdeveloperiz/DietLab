@@ -9,11 +9,15 @@
     </div>
 
     <div class="hero-cards">
-        <div class="container" style="text-align: center;">
-            <p>Custom plans to fit your unique health goals and lifestyle
-                Custom plans to fit your unique health goals and lifestyle
-               
-                
+        <div class="container " style="text-align: justify;">
+            <p>
+                The aim of the Diet is to keep the body healthy and working properly by providing the right balance of
+                nutrients. A good diet helps a person maintain a healthy weight, have enough energy for daily
+                activities, and support the body’s growth, repair, and overall function. It also plays a key role in
+                preventing diseases. In addition, a healthy diet can improve mental health, including mood and
+                concentration. For people with certain medical conditions, a proper diet can help manage symptoms and
+                improve quality of life. Overall, the goal of any diet is to create long-term healthy eating habits that
+                support both physical and mental well-being.
             </p>
         </div>
 
@@ -207,12 +211,12 @@
     </div>
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-    {% for i in insurance %}
-    <div class="col d-flex justify-content-center">
-        <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance">
+        {% for i in insurance %}
+        <div class="col d-flex justify-content-center">
+            <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance">
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 
 </div>
 
