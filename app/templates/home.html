@@ -210,13 +210,14 @@
 
     </div>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-        {% for i in insurance %}
-        <div class="col d-flex justify-content-center">
-            <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance">
-        </div>
-        {% endfor %}
+    <div class="row row-cols-2 row-cols-md-3 g-4">
+    {% for i in insurance %}
+    <div class="col d-flex justify-content-center">
+        <img src="{{ i.image.url }}" class="img-fluid mt-2 rounded-2 insurance shadow">
     </div>
+    {% endfor %}
+</div>
+
 
 </div>
 

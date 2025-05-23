@@ -48,8 +48,6 @@ class Availabledate(models.Model):
                 is_available=True
             )
     
-from django.db import models
-from django.core.exceptions import ValidationError
 
 class AvailableTime(models.Model):
     date = models.ForeignKey(Availabledate, on_delete=models.CASCADE)

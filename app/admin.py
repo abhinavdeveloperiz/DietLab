@@ -77,7 +77,18 @@ class AvailabledateAdmin(admin.ModelAdmin):
                 )
 
 
-admin.site.register(AppointmentPrice)
+@admin.register(AppointmentPrice)
+class AppointmentPriceAdmin(admin.ModelAdmin):
+    list_display = ('offer_price', 'actual_price', 'updated_on')
+    readonly_fields = ('updated_on',)
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+    
+
 
 
 

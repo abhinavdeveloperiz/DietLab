@@ -707,3 +707,9 @@ p {
   object-fit: cover;
   
 }
+@media(max-width: 768px) {
+  .insurance{
+    height: 70px;
+    width: 150px;
+  }
+}
