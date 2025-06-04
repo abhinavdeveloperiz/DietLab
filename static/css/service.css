@@ -334,7 +334,7 @@ body {
 /* Service Card Description - Now properly set up as a popup */
 .service-card .service-description {
   position: absolute;
-  top: -90px; /* Position above the card */
+  top: -230px; /* Position above the card */
   left: 0;
   right: 0;
   background-color: rgba(0, 94, 184, 0.95);
@@ -352,7 +352,9 @@ body {
   margin: 0 auto;
   max-width: 250px;
   z-index: 101;
+ 
 }
+
 
 /* Show description on hover */
 .service-card:hover .service-description {
