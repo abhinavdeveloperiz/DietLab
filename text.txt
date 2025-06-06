@@ -1,0 +1,224 @@
+  {% extends 'base.html' %}
+    {% load static %}
+
+
+    {% block title %}About | Atrium Design Studio{% endblock %}
+
+      {% block content %}
+
+  <!--ABOUT HEADER SECTION-->
+     <div class="parallax">
+          <div class="parallax-background parallax-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'images/atriumCover6.jpg' %}');"></div>
+          <div class="parallax-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg about-us-container p-5">
+                        <h1 class="about-us-heading">About Us</h1>
+                        <p class="card-text" style="letter-spacing: 6px;"><small class="text-muted" style="color: rgba(255,255,255,0.8) !important;"><a href="{% url 'AtriumApp:home' %}" style="color: rgba(255,255,255,0.8) !important;">HOME &nbsp;</a>> ABOUT US </small></p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+  <!--ABOUT US SECTION-->
+  <section class="about-section">
+      <div class="container">
+          <div class="row p-5">
+              <div class="col-sm-8">
+                  <div class="card border-0">
+                  <div class="card-body">
+                    <h2 class="card-title projectDetail" data-aos="fade-down" data-aos-duration="1000">About Atrium Design Studio</h2>
+                    <p class="card-text" style="line-height: 1.8; text-align: justify;" data-aos="fade-up" data-aos-duration="1000">
+                        Atrium Design Studio, established in 2011, stands as a premier
+                        service provider in the realm of Interior Designing Services. With a commitment to excellence, we offer a
+                        wide range of services tailored to meet the diverse needs of our clientele. From Corporate and Residential
+                        Interior Designing to specialized areas like Health Care, Showroom, and Hospital Interior Designing, we bring
+                        forth innovative solutions that prioritize functionality and comfort above all else.
+                    </p>
+
+                      <p class="card-text" style="line-height: 1.8; text-align: justify;" data-aos="fade-up" data-aos-duration="1000">
+                          In 2015, we expanded our horizons with the establishment of our
+                          state-of-the-art manufacturing facility in Kollam. This strategic move allowed us to marry design expertise
+                          with manufacturing prowess, ensuring seamless execution and unparalleled quality in every project we undertake.
+                      </p>
+
+                    <p class="card-text" style="line-height: 1.8; text-align: justify;" data-aos="fade-up" data-aos-duration="1000">
+                        Building on our success and commitment to innovation, 2021 saw the
+                        inauguration of our Experience Centre, offering clients a firsthand glimpse into our design philosophy and
+                        showcasing our curated selection of exquisite designs. Concurrently, we ventured into new avenues, opening another
+                        establishment closely aligned with Atrium Design Studio's vision and ethos.
+                    </p>
+                    <p class="card-text" style="line-height: 1.8; text-align: justify;" data-aos="fade-up" data-aos-duration="1000">
+                        Over the years, we have garnered a reputation for excellence,
+                          having successfully completed projects for hotels, showrooms, malls, residences, and more, both locally and
+                          internationally. Our dedication to customer satisfaction is reflected not only in our superior craftsmanship
+                          but also in our emphasis on space-specific lighting, customization, and convenient payment options.
+                    </p>
+                    <p class="card-text" style="line-height: 1.8; text-align: justify;" data-aos="fade-up" data-aos-duration="1000">
+                        With a decade of experience under our belt and a commitment to continual
+                        growth and innovation, Atrium Design Studio remains steadfast in our mission to elevate spaces and enrich lives through
+                        timeless design.
+                    </p>
+<!--                    <button class="download-button">-->
+<!--                        <a href="{% static 'pdf/atriumdesignstudio-brochure.pdf' %}" download="atriumdesignstudio-brochure.pdf" class="card-link p-0" target="_blank">-->
+<!--                            <span class="material-symbols-outlined">picture_as_pdf</span>Download Brochure-->
+<!--                        </a>-->
+<!--                    </button>-->
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card-wrapper d-flex align-items-center justify-content-center" style="height: 100%;">
+                    <div class="card logo-card" style="width: 18rem;">
+                      <img src="{% static 'images/ATRIUM LOGO PORTRAIT-1.png' %}" class="card-img-top" alt="Atrium Design Studio Logo">
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="container mt-5 mb-5" id="aboutImp">
+          <div class="row mb-5">
+              <div class="col-md-6">
+                  <div class="card rounded-0 cardBorder" style="max-width: 18rem;" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="card-body counter">
+                        <h1 class="card-title projectDetailName"><span class=" projectDetailName" id="yearsExperience">10</span>+ years experience</h1>
+                        <h6 class="card-subtitle mb-2 mt-3"><strong>Established in 2014</strong></h6>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="card rounded-0 cardBorder" style="max-width: 18rem;" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="card-body counter">
+                          <h1 class="card-title projectDetailName"><span class="projectDetailName" id="underConstruct">37000</span>+<br> sqft</h1>
+                        <h6 class="card-subtitle mb-2 mt-3"><strong>currently under construction</strong></h6>
+                      </div>
+                    </div>
+              </div>
+          </div>
+          <div class="row mb-5">
+              <div class="col-md-6">
+                  <div class="card rounded-0 cardBorder" style="max-width: 18rem;" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="card-body counter">
+                          <h1 class="card-title projectDetailName count"><span class="projectDetailName" id="teamMembers">80</span>+ team members </h1>
+                        <h6 class="card-subtitle mb-2 mt-3"><strong>& growing stronger</strong></h6>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="card rounded-0 cardBorder" style="max-width: 18rem;" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="card-body counter">
+                        <h1 class="card-title projectDetailName"><span class="projectDetailName" id="projectsCompleted">2000</span>+ projects</h1>
+                        <h6 class="card-subtitle mb-2 mt-3"><strong>completed successfully </strong></h6>
+                      </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+    <div class="container mt-5" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="projectDetail mt-5 mb-5">Visit Our Studio's Factory Outlet</h2>
+      <a href="{% url 'AtriumApp:factory' %}">
+        <div class="card mb-3" style="max-width: 1200px;">
+          <div class="row g-0">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <img src="{% static 'images/factory.jpg' %}" class="img-fluid rounded" alt="...">
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="card-wrapper" >
+              <div class="card-body">
+                <h5 class="card-title">From Concept to Creation: Where Design Innovation Meets Expert Craftsmanship.</h5>
+                <p class="card-text" style="text-align: justify;">At Atrium Design Studio, we pride ourselves on not only our exceptional interior design services but also on our state-of-the-art manufacturing facility. Located at Kollam, our factory is equipped with the latest technology and manned by skilled craftsmen who bring our designs to life with precision and passion.</p>
+                <p class="card-text"><small class="text-muted">CLICK TO KNOW MORE &#x2192;</small></p>
+              </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="container mt-5" >
+        <h2 class="projectDetail mt-5 mb-5" data-aos="fade-up" data-aos-duration="1000">Experience Centre by Atrium</h2>
+      <a href="https://www.instagram.com/experiencecentrebyatrium/?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank">
+                  <div class="row">
+            <div class="col-sm-12">
+                <div class="card mb-3" style="max-width: 1200px;" >
+                  <div class="row g-0">
+                    <div class="col-md-4 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-duration="2000">
+                      <img src="{% static 'images/experienceCentrebyAtrium.png' %}" class="img-thumbnail imgExperience border-0" alt="...">
+                    </div>
+                    <div class="col-md-8  d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="1000">
+                      <div class="card-body p-5">
+<!--                        <h5 class="card-title">From Concept to Creation: Where Design Innovation Meets Expert Craftsmanship.</h5>-->
+                        <p class="card-text" style="text-align: justify;">We are proud to introduce our Experience Centre by Atrium, a dedicated space where design innovation meets
+                            immersive exploration. Here, clients can engage firsthand with our curated selection of exquisite designs, gaining inspiration
+                            and insight into the possibilities for their own projects. Step into a world of creativity and refinement at our Experience
+                            Centre by Atrium, where every visit promises a journey of discovery.</p>
+                        <p class="card-text"><small class="text-muted">CLICK TO KNOW MORE &#x2192;</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </a>
+    </div>
+
+
+
+<script>
+    const projectsCompleted = document.getElementById('projectsCompleted');
+    const yearsExperience = document.getElementById('yearsExperience');
+    const underConstruct = document.getElementById('underConstruct');
+    const teamMembers = document.getElementById('teamMembers');
+
+    let projectsCompletedCount = 800;
+    let yearsExperienceCount = 0;
+    let underConstructCount = 0;
+    let teamMembersCount = 0;
+
+    const incrementProjectsCompleted = () => {
+        projectsCompletedCount++;
+        projectsCompleted.textContent = projectsCompletedCount;
+        if (projectsCompletedCount < 2000) {
+            setTimeout(incrementProjectsCompleted, 10);
+        }
+    };
+
+    const incrementYearsExperience = () => {
+        yearsExperienceCount++;
+        yearsExperience.textContent = yearsExperienceCount;
+        if (yearsExperienceCount < 10) {
+            setTimeout(incrementYearsExperience, 100);
+        }
+    };
+
+    const incrementUnderConstruct = () => {
+        underConstructCount += 1000; // You can adjust this increment as per your requirement
+        underConstruct.textContent = underConstructCount;
+        if (underConstructCount < 37000) {
+            setTimeout(incrementUnderConstruct, 50); // Adjust the timeout as per your preference
+        }
+    };
+
+    const incrementTeamMembers = () => {
+        teamMembersCount++;
+        teamMembers.textContent = teamMembersCount;
+        if (teamMembersCount < 80) {
+            setTimeout(incrementTeamMembers, 100); // Adjust the timeout as per your preference
+        }
+    };
+
+    // Call all increment functions
+    incrementProjectsCompleted();
+    incrementYearsExperience();
+    incrementUnderConstruct();
+    incrementTeamMembers();
+</script>
+
+  {% endblock %}

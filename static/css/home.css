@@ -794,15 +794,22 @@ p {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.insurance{
-  height: 120px;
-  width: 300px;
-  object-fit: cover;
-  
+
+
+
+/* insurance================= */
+.image-wrapper {
+    max-width: 100px; /* Smaller size as needed */
+    width: 100%;
 }
-@media(max-width: 768px) {
-  .insurance{
-    height: 70px;
-    width: 150px;
-  }
+
+.insurance {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+.insurance:hover {
+    transform: scale(1.05);
 }
